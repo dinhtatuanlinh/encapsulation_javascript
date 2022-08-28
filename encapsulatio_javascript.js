@@ -56,7 +56,7 @@ console.log(result)
 // class
 class Car {
     static color = "red"
-    #umberOfWheel = 4
+    #numberOfWheel = 4
     name
     #peopleOnCar
     constructor(name) {
@@ -79,8 +79,7 @@ class Car {
     }
 }
 
-// let toyota = new Car("toyota")
+let toyota = new Car("toyota")
 console.log(Car.color)
-
-console.log(Car.run())
-// console.log(typeof toyota)
+toyota.getNumberOfWheel()
+console.log(typeof toyota)
