@@ -7,16 +7,21 @@ let validation = () => {
         invalid: 3,
     }
 
-    const validator = {
-        nameValidator: nameValidation,
+    let log = (input)=>{
+        console.log(input)
+    }
+
+    let validator = {
+
         getPattern: () => {
+            log(pattern)
             return pattern
         },
         setPattern: (pt) => {
             pattern = pt
         },
         deletePattern: () => {
-            pattern = ''
+            pattern = undefined
         },
         validate: (input) => {
             if (pattern === undefined) {
@@ -25,16 +30,14 @@ let validation = () => {
             ok = pattern.test(input)
             if (ok) {
                 return returnCode.valid
-            } else {
-                return returnCode.invalid
-            }
+            } 
+            return returnCode.invalid
+            
         }
     }
 
     return validator
 }
-
-
 
 // encapsulation
 // closure
@@ -43,13 +46,18 @@ let validation = () => {
 
 
 
-let validateEmail = validation("valdateEmail")
-console.log(validateEmail.nameValidator)
-console.log(typeof validateEmail)
+let validateEmail = validation()
 
 validateEmail.setPattern(/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i)
 let result = validateEmail.validate("dinhtatatuanlinh@gmail.com")
-console.log(result)
+
+
+let validatePhone = validator()
+validatePhone.setPattern()
+
+
+
+
 // private
 // class
 class Car {
