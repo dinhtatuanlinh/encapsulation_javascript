@@ -1,6 +1,4 @@
-let validation = (name) => {
-    let nameValidation
-    nameValidation = name
+let validation = () => {
 
     let pattern
     let returnCode = {
