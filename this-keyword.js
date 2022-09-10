@@ -12,13 +12,13 @@ function Validation(input) {
 
     this.getPattern = () => {
         return pattern
-    },
+    }
     this.setPattern = (pt) => {
         pattern = pt
-    },
+    }
     this.deletePattern = () => {
         pattern = undefined
-    },
+    }
     this.validate = (input) => {
         if (pattern === undefined) {
             return returnCode.patternErr
@@ -36,11 +36,12 @@ function Validation(input) {
 let emailValidation = new Validation("email")
 emailValidation.name = "phone"
 console.log(emailValidation.name)
-let foo = ()=>{
-    console.log(typeof this)
-}
-foo()
-function boo(){
-    console.log(typeof this)
-}
-boo()
+console.log(emailValidation.getPattern())
+// let foo = ()=>{
+//     console.log(typeof this)
+// }
+// foo()
+// function boo(){
+//     console.log(typeof this)
+// }
+// boo()
