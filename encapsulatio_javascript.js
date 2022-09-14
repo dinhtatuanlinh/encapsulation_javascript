@@ -1,6 +1,5 @@
-let validation = () => {
-
-    let pattern
+let validation = (pt) => {
+    let pattern = pt
     let returnCode = {
         patternErr: 1,
         valid: 2,
@@ -24,7 +23,7 @@ let validation = () => {
             pattern = undefined
         },
         validate: (input) => {
-            if (pattern === undefined) {
+            if (this.pattern === undefined) {
                 return returnCode.patternErr
             }
             ok = pattern.test(input)
@@ -33,6 +32,9 @@ let validation = () => {
             } 
             return returnCode.invalid
             
+        },
+        getName: function(){
+            console.log(this.name)
         }
     }
 
@@ -44,48 +46,50 @@ let validation = () => {
 
 // git
 
+let emailValidation = validation(/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i)
 
+let phoneValidation = validation(/^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/)
 
-let validateEmail = validation()
-
-validateEmail.setPattern(/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i)
+console.log(validateEmail.pattern)
 let result = validateEmail.validate("dinhtatatuanlinh@gmail.com")
+console.log(result)
 
 
-let validatePhone = validator()
-validatePhone.setPattern()
+// let validatePhone = validator()
+// validatePhone.setPattern()
 
 
 
 
 // private
 // class
-class Car {
-    static color = "red"
-    #numberOfWheel = 4
-    name
-    #peopleOnCar
-    constructor(name) {
-        this.name = name
-    }
-    static run() {
-        this.#log("run run run")
-    }
-    getNumberOfWheel() {
-        this.#log(this.#numberOfWheel)
-    }
-    setPeopleOnCar(numPeople) {
-        if (numPeople <= 5) {
-            this.#peopleOnCar = numPeople
-        }
-    }
+// class Car {
+//     static color = "red"
+//     #numberOfWheel = 4
+//     name
+//     #peopleOnCar
+//     constructor(name) {
+//         this.name = name
+//         console.log('constructor!!!')
+//     }
+//     static run() {
+//         this.#log("run run run")
+//     }
+//     getNumberOfWheel() {
+//         this.#log(this.#numberOfWheel)
+//     }
+//     setPeopleOnCar(numPeople) {
+//         if (numPeople <= 5) {
+//             this.#peopleOnCar = numPeople
+//         }
+//     }
 
-    #log(input) {
-        console.log(input)
-    }
-}
+//     #log(input) {
+//         console.log(input)
+//     }
+// }
 
-let toyota = new Car("toyota")
-console.log(Car.color)
-toyota.getNumberOfWheel()
-console.log(typeof toyota)
+// let toyota = new Car("toyota")
+// console.log(Car.color)
+// toyota.getNumberOfWheel()
+// console.log(typeof toyota)
